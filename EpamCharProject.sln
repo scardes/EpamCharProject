@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EpamCharProject", "EpamCharProject\EpamCharProject.csproj", "{1CD6CC11-E199-43C1-856E-D4B2689C6958}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1CD6CC11-E199-43C1-856E-D4B2689C6958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CD6CC11-E199-43C1-856E-D4B2689C6958}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CD6CC11-E199-43C1-856E-D4B2689C6958}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CD6CC11-E199-43C1-856E-D4B2689C6958}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {91DFA01C-4E66-49B8-B58E-148EC1B561C9}
+	EndGlobalSection
+EndGlobal

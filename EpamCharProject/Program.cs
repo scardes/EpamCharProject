@@ -14,36 +14,39 @@ namespace EpamCharProject
             {
                 Console.WriteLine("Введите строку для поиска в ней последовательность уникальных символов");
                 string? str = Console.ReadLine(); // "?" Вопрос чтобы принимал значение null - при вводе строки
-                int count = 0;
-                int countMax = 0;
+                string unicStr = "";
+                string unicStrMax = "";
+                string unicStrMaxTemp = "";
+                //int count = 0;
+                //int countMax = 0;
 
                 for (int i = 0; i < (str.Length - 1); i++) //(str.Length-1) - чтобы не выходить за пределы массива 
                 {
-
-                    if (str[i] == str[i + 1])
+                    if (str[i] != str[i + 1]) // If symbols NOT is equal //Цикл сравнения символов
                     {
-                        Console.WriteLine("SAME << {0} и {1} [Counter: {2}, max: {3}]", str[i], str[i + 1], count, countMax);
-                        if (count >= countMax) // Записываем счетчик в Макс и обнуляем счетчик
+                        Console.WriteLine("DIFF >> {0} и {1} ", str[i], str[i + 1]);
+                        unicStr = unicStr + str[i]; //Записываем текущий символ
+                        unicStrMaxTemp = unicStr + str[i+1]; //Записываем след сравнимаемый символ 
+                        if (unicStrMaxTemp.Length > unicStrMax.Length) // Сравниваем Врем.макс с основным Макс символоми
                         {
-                            countMax = count+1; // +1 чтобы учитывать переходной символ
-                            count = 0;
+                            unicStrMax = unicStrMaxTemp; // Переписываем Макс если Темп больше
                         }
                     }
                     else
                     {
-                        Console.WriteLine("DIFF >> {0} и {1} [Counter: {2}, max: {3}]", str[i], str[i + 1], count, countMax);
-                        count++;
+                        Console.WriteLine("SAME << {0} и {1} ", str[i], str[i + 1]);
+                        // символы похожи сохраняем текущую макс строку и начинаем собирать новую строку
+                        unicStrMax = unicStrMaxTemp; //Записываем след сравнимаемый символ 
+                        unicStr = "";
+                        unicStrMaxTemp = "";
                     }
-                }
-                if (count >= countMax)
-                {
-                    countMax = count+1; // +1 чтобы считать последний уникальный символ
-                }
+                }  
 
-                Console.WriteLine("В строке {0}, кол-во макс уник послед символов - {1}", str, countMax);
+
+                Console.WriteLine("MAX unic symbols - {0}",  unicStrMax);
 
                 Console.WriteLine("------------------------\n");
-
+                
                 // Wait for the user to respond before closing.
                 Console.Write("Нажмите 'n' и Enter чтобы выйти из программы, или введите любое значение и Enter для продолжения работы с программой: ");
                 if (Console.ReadLine() == "n") endApp = true;

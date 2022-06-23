@@ -17,7 +17,7 @@ namespace EpamCharProject
 
                 //string uniqueStringMax = FindUnique(str);
 
-                Console.WriteLine("\nMAX unique symbols is: {0}", FindUnique(str));
+                Console.WriteLine("\nMAX unique symbols is: {0}", FindUnique(str)); //
                 Console.WriteLine("------------------------\n");
 
                 Console.Write("Press 'n' and Enter to close the app, or press any key and Enter to continue: ");
@@ -30,7 +30,6 @@ namespace EpamCharProject
             string FindUnique(string inputLine)
             {
                 string unicStr = "";
-                string unicStrTemp = "";
                 string unicStrMax = "";
                 string unicStrMaxTemp = "";
 
@@ -47,16 +46,15 @@ namespace EpamCharProject
 
                     else
                     {
-                        //Console.WriteLine("SAME << {0} и {1} ", inputLine[i], inputLine[i + 1]); // For debug символы похожи сохраняем текущую макс строку и начинаем собирать новую строку
-                        unicStrTemp = unicStrMaxTemp; //Записываем след сравнимаемый символ 
+                        //Console.WriteLine("SAME << {0} и {1} ", inputLine[i], inputLine[i + 1]); // For debug Начинаем собирать новую строку
                         unicStr = "";
                         unicStrMaxTemp = "";
                     }
 
-                    if (unicStrMaxTemp.Length > unicStrTemp.Length) unicStrTemp = unicStrMaxTemp;
+                    if (unicStrMaxTemp.Length == 0) unicStrMaxTemp += inputLine[0]; // Если все символы одинаковые. 
 
                     if (unicStrMaxTemp.Length > unicStrMax.Length) unicStrMax = unicStrMaxTemp; // Сравниваем Врем.макс с основным > Макс символоми Переписываем Макс если Темп больше
-
+                   
                 }
 
                 return unicStrMax;

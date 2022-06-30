@@ -2,12 +2,12 @@
 
 #nullable enable
 
+/// <summary>
+/// Console program which accepts a sequence of characters (string) as an argument and 
+/// prints the maximum number of different sequential characters into the console
+/// </summary>
 namespace EpamCharProject
 {
-    /// <summary>
-    /// Console program which accepts a sequence of characters (string) as an argument and 
-    /// prints the maximum number of different sequential characters into the console
-    /// </summary>
     class Program
     {
         static void Main()
@@ -17,7 +17,7 @@ namespace EpamCharProject
             // Repeat program, until input key "n" to exit.
             while (!endApp) 
             {
-                Console.WriteLine("Enter a string to search for a sequence of unique characters");
+                Console.WriteLine("Enter a string to search for a sequence of unique characters: ");
 
                 // Ask the user to type the string? (nullable sequence of characters)
                 string? inputLine = Console.ReadLine(); 
@@ -46,13 +46,13 @@ namespace EpamCharProject
                 string maxUniqueStr = "";
                 string maxUniqueStrTemp;
 
-                // "inputLine" has only one symbol
+                // If "inputLine" has only one symbol
                 if (inputLine.Length == 1)
                 {
                     maxUniqueStr = inputLine;
                 }
 
-                // "inputLine" has more than 2 symbols. 
+                // If "inputLine" has more than 2 symbols. 
                 for (int i = 0; i < (inputLine.Length - 1); i++) 
                 {
                     // NOT is equal symbols, collect both symbols
@@ -69,7 +69,7 @@ namespace EpamCharProject
                         maxUniqueStrTemp = "";
                     }
 
-                    // "inputLine" has only same symbols (like "11111")
+                    // If "inputLine" has only same symbols (like "11111")
                     if (maxUniqueStrTemp.Length == 0)
                     {
                         maxUniqueStrTemp += inputLine[0]; 

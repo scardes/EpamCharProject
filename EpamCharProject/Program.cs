@@ -24,10 +24,15 @@ namespace EpamCharProject
 
                 // Invoke metod FindUnique with inputStr
                 Unique unicLine = new Unique();
+                
+                string unicStr = unicLine.FindUnique(inputLine);
+                string unicStrLetter = unicLine.FindUniqueLetter(inputLine);
 
-                //string unicStr = unicLine.FindUnique(inputLine);
 
-                Console.WriteLine("\nMAX unique symbols is: {0}", unicLine.FindUnique(inputLine)); 
+                Console.WriteLine("\nMAX unique symbols is: {0}", unicStr); 
+                Console.WriteLine("------------------------");
+
+                Console.WriteLine("\nMAX unique LETTER is: {0}", unicStrLetter);
                 Console.WriteLine("------------------------\n");
 
                 // Wait for the user to respond before closing.

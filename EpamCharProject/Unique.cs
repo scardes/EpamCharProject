@@ -6,8 +6,6 @@ namespace EpamCharProject
 {
     public class Unique
     {
-
-
         /// <summary>
         /// First metod find max unique line of symbols in string (without changes)
         /// </summary>
@@ -15,7 +13,7 @@ namespace EpamCharProject
         {
             string uniqueStr = "";
             string maxUniqueStr = "";
-            string maxUniqueStrTemp;
+            string maxUniqueStrTemp = "";
 
             // If "inputLine" has only one symbol
             if (inputLine.Length == 1)
@@ -56,54 +54,52 @@ namespace EpamCharProject
         }
 
         /// <summary>
-        /// Second metod find max unique LETTER line of symbols in string (just copy of first metod for now)
-        /// TO DO change to char[] and use metod char.IsLetter
+        /// Second metod find max unique LETTER line of symbols in string; String change to char[] and use metod char.IsLetter
         /// </summary>
         public string FindUniqueLetter(string inputLine)
         {
             string uniqueStr = "";
             string maxUniqueStr = "";
-            string maxUniqueStrTemp;
+            string maxUniqueStrTemp = "";
 
             char[] symbols = inputLine.ToCharArray();
 
             // If "symbols" has only one symbol
-            if (symbols.Length == 1)
+            if ((symbols.Length == 1) && char.IsLetter(symbols[0]))
             {
                 maxUniqueStr = inputLine;
             }
-
-            for (int i = 0; i < symbols.Length; i++)
-            {
-                if (true)
-                {
-
-                }
-            }
-
-
+           
             // If "inputLine" has more than 2 symbols. 
-            for (int i = 0; i < (inputLine.Length - 1); i++)
+            for (int i = 0; i < (symbols.Length - 1) ; i++)
             {
-                // NOT is equal symbols, collect both symbols
-                if (inputLine[i] != inputLine[i + 1])
+                if (char.IsLetter(symbols[i]))
                 {
-                    uniqueStr += inputLine[i];
-                    maxUniqueStrTemp = uniqueStr + inputLine[i + 1];
+                    uniqueStr += symbols[i];
+                   // maxUniqueStrTemp = uniqueStr;
+
+                    if (symbols[i] != symbols[i + 1] && char.IsLetter(symbols[i+1]))
+                    {
+                        maxUniqueStrTemp = uniqueStr + symbols[i + 1];
+                    }
                 }
 
-                // Equal symbols: reset collectors
+                // Equal symbols or not LETTER: reset collectors
                 else
                 {
                     uniqueStr = "";
                     maxUniqueStrTemp = "";
+
+                    if (char.IsLetter(symbols[i + 1]))
+                    {
+                        maxUniqueStrTemp += symbols[i + 1];
+                    }
                 }
 
-
-                // If "inputLine" has only same symbols (like "11111")
-                if (maxUniqueStrTemp.Length == 0)
+                // If "inputLine" has only same symbols (like "aaaaa")
+                if (maxUniqueStrTemp.Length == 0 && char.IsLetter(symbols[0]))
                 {
-                    maxUniqueStrTemp += inputLine[0];
+                    maxUniqueStrTemp += symbols[0];
                 }
 
                 // Safe unique max string 
@@ -112,6 +108,7 @@ namespace EpamCharProject
                     maxUniqueStr = maxUniqueStrTemp;
                 }
             }
+            
             return maxUniqueStr;
         }
 

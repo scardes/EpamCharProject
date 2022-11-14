@@ -20,10 +20,14 @@ namespace EpamCharProject
                 Console.WriteLine("Enter a string to search for a sequence of unique characters: ");
 
                 // Ask the user to type the string? (nullable sequence of characters)
-                string? inputLine = Console.ReadLine(); 
+                string? inputLine = Console.ReadLine();
 
                 // Invoke metod FindUnique with inputStr
-                Console.WriteLine("\nMAX unique symbols is: {0}", FindUnique(inputLine)); 
+                Unique unicLine = new Unique();
+
+                //string unicStr = unicLine.FindUnique(inputLine);
+
+                Console.WriteLine("\nMAX unique symbols is: {0}", unicLine.FindUnique(inputLine)); 
                 Console.WriteLine("------------------------\n");
 
                 // Wait for the user to respond before closing.
@@ -38,53 +42,6 @@ namespace EpamCharProject
             }
         }
 
-        /// <summary>
-        /// Metod find max unique line of symbols in string
-        /// </summary>
-        private static string FindUnique(string inputLine)
-        {
-            string uniqueStr = "";
-            string maxUniqueStr = "";
-            string maxUniqueStrTemp;
-
-            // If "inputLine" has only one symbol
-            if (inputLine.Length == 1)
-            {
-                maxUniqueStr = inputLine;
-            }
-
-            // If "inputLine" has more than 2 symbols. 
-            for (int i = 0; i < (inputLine.Length - 1); i++)
-            {
-                // NOT is equal symbols, collect both symbols
-                if (inputLine[i] != inputLine[i + 1])
-                {
-                    uniqueStr += inputLine[i];
-                    maxUniqueStrTemp = uniqueStr + inputLine[i + 1];
-                }
-
-                // Equal symbols: reset collectors
-                else
-                {
-                    uniqueStr = "";
-                    maxUniqueStrTemp = "";
-                }
-
-                // If "inputLine" has only same symbols (like "11111")
-                if (maxUniqueStrTemp.Length == 0)
-                {
-                    maxUniqueStrTemp += inputLine[0];
-                }
-
-                // Safe unique max string 
-                if (maxUniqueStrTemp.Length > maxUniqueStr.Length)
-                {
-                    maxUniqueStr = maxUniqueStrTemp;
-                }
-
-            }
-
-            return maxUniqueStr;
-        }
+        
     }
 }

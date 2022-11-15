@@ -7,6 +7,21 @@ namespace Test_FindUniqueLetter
     public class FindUniqueLetter
     {
         [TestMethod]
+        public void Assert_EmptyInput_FindUniqueLetter()
+        {
+            // Arrange
+            string inputStr = "";
+            string expectedtStr = "";
+            Unique unicLine = new Unique();
+
+            // Act
+            string resultStr = unicLine.FindUniqueLetter(inputStr);
+
+            // Assert
+            Assert.AreEqual(expectedtStr, resultStr);
+        }
+
+        [TestMethod]
         public void Assert_OneLetter_FindUniqueLetter()
         {
             // Arrange
@@ -110,6 +125,22 @@ namespace Test_FindUniqueLetter
             // Assert
             Assert.AreEqual(expectedtStr, resultStr);
         }
+
+        [TestMethod]
+        public void Assert_RepetesLetters_FindUniqueLetter()
+        {
+            // Arrange
+            string inputStr = "ttttttt";
+            string expectedtStr = "t";
+            Unique unicLine = new Unique();
+
+            // Act
+            string resultStr = unicLine.FindUniqueLetter(inputStr);
+
+            // Assert
+            Assert.AreEqual(expectedtStr, resultStr);
+        }
+
 
     }
 }

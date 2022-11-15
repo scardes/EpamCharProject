@@ -27,13 +27,16 @@ namespace EpamCharProject
                 
                 string unicStr = unicLine.FindUnique(inputLine);
                 string unicStrLetter = unicLine.FindUniqueLetter(inputLine);
+                string unicStrDigit = unicLine.FindUniqueDigit(inputLine);
 
 
                 Console.WriteLine("\nMAX unique symbols is: {0}", unicStr); 
-                Console.WriteLine("------------------------");
 
-                Console.WriteLine("\nMAX unique LETTER is: {0}", unicStrLetter);
+                Console.WriteLine("\nMAX unique  LETTER is: {0}", unicStrLetter);
+
+                Console.WriteLine("\nMAX unique   DIGIT is: {0}", unicStrDigit);
                 Console.WriteLine("------------------------\n");
+
 
                 // Wait for the user to respond before closing.
                 Console.Write("Press 'n' and Enter to close the app, or press any key and Enter to continue: ");

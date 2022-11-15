@@ -54,7 +54,9 @@ namespace EpamCharProject
         }
 
         /// <summary>
-        /// Second metod find max unique LETTER line of symbols in string; String change to char[] and use metod char.IsLetter
+        /// Second metod find max unique LETTER line of symbols in string;
+        /// (It`s copy for purpose of learning Unit Tests)
+        /// String change to char[] and use metod char.IsLetter
         /// </summary>
         public string FindUniqueLetter(string inputLine)
         {
@@ -83,6 +85,13 @@ namespace EpamCharProject
                     if (char.IsLetter(symbols[i + 1]))
                     {
                         maxUniqueStrTemp = uniqueStr + inputLine[i + 1];
+                    }
+
+                    // Both char is NOT Letter: reset collectors
+                    if (!char.IsLetter(symbols[i]) && !char.IsLetter(symbols[i + 1]))
+                    {
+                        uniqueStr = "";
+                        maxUniqueStrTemp = "";
                     } 
                 }
 

@@ -7,7 +7,7 @@ namespace Test_FindUniqueLetter
     public class FindUniqueLetter
     {
         [TestMethod]
-        public void Assert_EmptyInput_FindUniqueLetter()
+        public void Assert_EmptyInput_ReturnEmpty()
         {
             // Arrange
             string inputStr = "";
@@ -22,7 +22,7 @@ namespace Test_FindUniqueLetter
         }
 
         [TestMethod]
-        public void Assert_OneLetter_FindUniqueLetter()
+        public void Assert_OneLetter_ReturnOneLetter()
         {
             // Arrange
             string inputStr = "F";
@@ -37,7 +37,7 @@ namespace Test_FindUniqueLetter
         }
 
         [TestMethod]
-        public void Assert_OneDigit_FindUniqueLetter()
+        public void Assert_OneDigit_ReturnEmpty()
         {
             // Arrange
             string inputStr = "1";
@@ -52,7 +52,7 @@ namespace Test_FindUniqueLetter
         }
 
         [TestMethod]
-        public void Assert_TwoDigitLetter_FindUniqueLetter()
+        public void Assert_TwoDigitLetter_ReturnOneLetter()
         {
             // Arrange
             string inputStr = "1q";
@@ -67,7 +67,7 @@ namespace Test_FindUniqueLetter
         }
 
         [TestMethod]
-        public void Assert_TwoLetterDigit_FindUniqueLetter()
+        public void Assert_TwoLetterDigit_ReturnOneLetter()
         {
             // Arrange
             string inputStr = "g1";
@@ -82,7 +82,7 @@ namespace Test_FindUniqueLetter
         }
 
         [TestMethod]
-        public void Assert_UnicLetters_FindUniqueLetter()
+        public void Assert_UnicLetters_ReturnAllLetters()
         {
             // Arrange
             string inputStr = "qwerty";
@@ -97,7 +97,7 @@ namespace Test_FindUniqueLetter
         }
 
         [TestMethod]
-        public void Assert_NonUnicLetters_FindUniqueLetter()
+        public void Assert_NonUnicLetters_ReturnUniqueLetter()
         {
             // Arrange
             string inputStr = "qwerttty";
@@ -112,7 +112,7 @@ namespace Test_FindUniqueLetter
         }
 
         [TestMethod]
-        public void Assert_NonUnicLettersDigit_FindUniqueLetter()
+        public void Assert_NonUnicLettersDigit_ReturnUniqueLetter()
         {
             // Arrange
             string inputStr = "123qwerttty";
@@ -127,7 +127,7 @@ namespace Test_FindUniqueLetter
         }
 
         [TestMethod]
-        public void Assert_RepetesLetters_FindUniqueLetter()
+        public void Assert_RepetesLetters_ReturnOneLetter()
         {
             // Arrange
             string inputStr = "ttttttt";
@@ -141,6 +141,35 @@ namespace Test_FindUniqueLetter
             Assert.AreEqual(expectedtStr, resultStr);
         }
 
+        [TestMethod]
+        public void Assert_TwoNonUnicLettersDigit_ReturnLongUniqueLetter()
+        {
+            // Arrange
+            string inputStr = "123qwertttyewsds";
+            string expectedtStr = "tyewsds";
+            Unique unicLine = new Unique();
+
+            // Act
+            string resultStr = unicLine.FindUniqueLetter(inputStr);
+
+            // Assert
+            Assert.AreEqual(expectedtStr, resultStr);
+        }
+
+        [TestMethod]
+        public void Assert_TwoNonUnicLettersDigitBreak_ReturnLongUniqueLetter()
+        {
+            // Arrange
+            string inputStr = "123qwer4567asdfg";
+            string expectedtStr = "asdfg";
+            Unique unicLine = new Unique();
+
+            // Act
+            string resultStr = unicLine.FindUniqueLetter(inputStr);
+
+            // Assert
+            Assert.AreEqual(expectedtStr, resultStr);
+        }
 
     }
 }

@@ -3,7 +3,7 @@
 namespace EpamCharProject
 {
     /// <summary>
-    /// Class for trainin Unit Tests. Find Unique Chars/Letters/Digit
+    /// Class for training Unit Tests. Find Unique Chars/Letters/Digit
     /// </summary>
     public class Unique
     {

@@ -3,15 +3,29 @@ using EpamCharProject;
 
 namespace Test_FindUniqueDigit
 {
+    /// <summary>
+    /// Class Assert FindUniqueDigit with DataRow 
+    /// </summary>
     [TestClass]
     public class FindUniqueDigit
     {
         [TestMethod]
-        public void Assert_EmptyInput_ReturnEmpty()
+        [DataRow("","")]
+        [DataRow("8","8")]
+        [DataRow("L","")]
+        [DataRow("6q","6")]
+        [DataRow("g5","5")]
+        [DataRow("777777", "7")]
+        [DataRow("123987", "123987")]
+        [DataRow("1234555567", "12345")]
+        [DataRow("123qwerttty", "123")]
+        [DataRow("12113qwer4567asdfg", "4567")]
+        [DataRow("123456wer12367ttyewsds", "123456")]
+        public void Assert_EmptyInput_ReturnEmpty(string input, string result)
         {
             // Arrange
-            string inputStr = "";
-            string expectedtStr = "";
+            string inputStr = input;
+            string expectedtStr = result;
             Unique unicLine = new Unique();
 
             // Act
@@ -20,156 +34,5 @@ namespace Test_FindUniqueDigit
             // Assert
             Assert.AreEqual(expectedtStr, resultStr);
         }
-
-        [TestMethod]
-        public void Assert_OneDigit_ReturnOneDigit()
-        {
-            // Arrange
-            string inputStr = "8";
-            string expectedtStr = "8";
-            Unique unicLine = new Unique();
-
-            // Act
-            string resultStr = unicLine.FindUniqueDigit(inputStr);
-
-            // Assert
-            Assert.AreEqual(expectedtStr, resultStr);
-        }
-
-        [TestMethod]
-        public void Assert_OneLetter_ReturnEmpty()
-        {
-            // Arrange
-            string inputStr = "L";
-            string expectedtStr = "";
-            Unique unicLine = new Unique();
-
-            // Act
-            string resultStr = unicLine.FindUniqueDigit(inputStr);
-
-            // Assert
-            Assert.AreEqual(expectedtStr, resultStr);
-        }
-
-        [TestMethod]
-        public void Assert_TwoDigitLetter_ReturnOneDigit()
-        {
-            // Arrange
-            string inputStr = "6q";
-            string expectedtStr = "6";
-            Unique unicLine = new Unique();
-
-            // Act
-            string resultStr = unicLine.FindUniqueDigit(inputStr);
-
-            // Assert
-            Assert.AreEqual(expectedtStr, resultStr);
-        }
-
-        [TestMethod]
-        public void Assert_TwoLetterDigit_ReturnOneDigit()
-        {
-            // Arrange
-            string inputStr = "g9";
-            string expectedtStr = "9";
-            Unique unicLine = new Unique();
-
-            // Act
-            string resultStr = unicLine.FindUniqueDigit(inputStr);
-
-            // Assert
-            Assert.AreEqual(expectedtStr, resultStr);
-        }
-
-        [TestMethod]
-        public void Assert_UnicDigits_ReturnAllDigits()
-        {
-            // Arrange
-            string inputStr = "123987";
-            string expectedtStr = "123987";
-            Unique unicLine = new Unique();
-
-            // Act
-            string resultStr = unicLine.FindUniqueDigit(inputStr);
-
-            // Assert
-            Assert.AreEqual(expectedtStr, resultStr);
-        }
-
-        [TestMethod]
-        public void Assert_NonUnicDigits_ReturnUniqueDigit()
-        {
-            // Arrange
-            string inputStr = "1234555567";
-            string expectedtStr = "12345";
-            Unique unicLine = new Unique();
-
-            // Act
-            string resultStr = unicLine.FindUniqueDigit(inputStr);
-
-            // Assert
-            Assert.AreEqual(expectedtStr, resultStr);
-        }
-
-        [TestMethod]
-        public void Assert_NonUnicDigitLetter_ReturnUniqueDigit()
-        {
-            // Arrange
-            string inputStr = "123qwerttty";
-            string expectedtStr = "123";
-            Unique unicLine = new Unique();
-
-            // Act
-            string resultStr = unicLine.FindUniqueDigit(inputStr);
-
-            // Assert
-            Assert.AreEqual(expectedtStr, resultStr);
-        }
-
-        [TestMethod]
-        public void Assert_RepetesDigits_ReturnOneDigit()
-        {
-            // Arrange
-            string inputStr = "777777";
-            string expectedtStr = "7";
-            Unique unicLine = new Unique();
-
-            // Act
-            string resultStr = unicLine.FindUniqueDigit(inputStr);
-
-            // Assert
-            Assert.AreEqual(expectedtStr, resultStr);
-        }
-
-        [TestMethod]
-        public void Assert_TwoNonUnicLettersDigits_ReturnLongUniqueDigit()
-        {
-            // Arrange
-            string inputStr = "123456wer12367ttyewsds";
-            string expectedtStr = "123456";
-            Unique unicLine = new Unique();
-
-            // Act
-            string resultStr = unicLine.FindUniqueDigit(inputStr);
-
-            // Assert
-            Assert.AreEqual(expectedtStr, resultStr);
-        }
-
-        [TestMethod]
-        public void Assert_TwoNonUnicDigitsDigitBreak_ReturnLongUniqueDigit()
-        {
-            // Arrange
-            string inputStr = "12113qwer4567asdfg";
-            string expectedtStr = "4567";
-            Unique unicLine = new Unique();
-
-            // Act
-            string resultStr = unicLine.FindUniqueDigit(inputStr);
-
-            // Assert
-            Assert.AreEqual(expectedtStr, resultStr);
-        }
-
     }
 }

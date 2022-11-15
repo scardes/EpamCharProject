@@ -3,6 +3,9 @@ using EpamCharProject;
 
 namespace Test_FindUnique
 {
+    /// <summary>
+    /// Class Assert FindUnique without DataRow
+    /// </summary>
     [TestClass]
     public class FindUnique
     {

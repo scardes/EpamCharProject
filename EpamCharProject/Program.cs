@@ -5,6 +5,8 @@
 /// <summary>
 /// Console program which accepts a sequence of characters (string) as an argument and 
 /// prints the maximum number of different sequential characters into the console
+/// Add two functions FindUniqueLetter and FindUniqueDigit 
+/// And Unit Test for three functions (FindUniqueDigit with DataRow)
 /// </summary>
 namespace EpamCharProject
 {

@@ -70,30 +70,27 @@ namespace EpamCharProject
                 maxUniqueStr = inputLine;
             }
            
-            // If "inputLine" has more than 2 symbols. 
-            for (int i = 0; i < (symbols.Length - 1) ; i++)
+            for (int i = 0; i < (symbols.Length - 1); i++)
             {
-                if (char.IsLetter(symbols[i]))
+                // NOT is equal symbols, collect both symbols
+                if (inputLine[i] != inputLine[i + 1])
                 {
-                    uniqueStr += symbols[i];
-                   // maxUniqueStrTemp = uniqueStr;
-
-                    if (symbols[i] != symbols[i + 1] && char.IsLetter(symbols[i+1]))
+                    if (char.IsLetter(symbols[i]))
                     {
-                        maxUniqueStrTemp = uniqueStr + symbols[i + 1];
+                        uniqueStr += inputLine[i];
                     }
+
+                    if (char.IsLetter(symbols[i + 1]))
+                    {
+                        maxUniqueStrTemp = uniqueStr + inputLine[i + 1];
+                    } 
                 }
 
-                // Equal symbols or not LETTER: reset collectors
+                // Equal symbols: reset collectors
                 else
                 {
                     uniqueStr = "";
                     maxUniqueStrTemp = "";
-
-                    if (char.IsLetter(symbols[i + 1]))
-                    {
-                        maxUniqueStrTemp += symbols[i + 1];
-                    }
                 }
 
                 // If "inputLine" has only same symbols (like "aaaaa")
@@ -111,7 +108,5 @@ namespace EpamCharProject
             
             return maxUniqueStr;
         }
-
-
     }
 }

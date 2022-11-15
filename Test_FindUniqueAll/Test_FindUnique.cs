@@ -7,7 +7,7 @@ namespace Test_FindUnique
     public class FindUnique
     {
         [TestMethod]
-        public void Check_WithOneChar_FindUnique()
+        public void Assert_OneChar_FindUnique()
         {
             // Arrange
             string inputStr = "F";

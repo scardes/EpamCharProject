@@ -21,7 +21,7 @@ namespace Test_FindUniqueDigit
         [DataRow("123qwerttty", "123")]
         [DataRow("12113qwer4567asdfg", "4567")]
         [DataRow("123456wer12367ttyewsds", "123456")]
-        public void Assert_EmptyInput_ReturnEmpty(string input, string result)
+        public void Assert_DataRowInput_ReturnDataRowOutput(string input, string result)
         {
             // Arrange
             string inputStr = input;

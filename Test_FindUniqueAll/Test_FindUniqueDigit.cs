@@ -24,10 +24,10 @@ namespace Test_FindUniqueDigit
         public void Assert_DataRowInput_ReturnDataRowOutput(string input, string result)
         {
             // Arrange
+            Unique unicLine = new Unique();
             string inputStr = input;
             string expectedtStr = result;
-            Unique unicLine = new Unique();
-
+            
             // Act
             string resultStr = unicLine.FindUniqueDigit(inputStr);
 
